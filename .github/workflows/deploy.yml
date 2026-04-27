@@ -32,32 +32,35 @@ jobs:
       - name: 📦 Install dependencies
         run: npm ci
 
+      # ✅ CORREGIDO: base-href es / porque es repo de usuario
       - name: 🔨 Build
-        run: npx ng build --base-href=/cv-digital/
+        run: npx ng build --base-href=/
 
-      # ✅ Listar archivos para debug (puedes quitarlo después)
+      # ✅ Debug: ver qué se generó
       - name: 📋 List build output
         run: |
-          echo "=== Contenido de dist/ ==="
+          echo "=== dist/ ==="
           ls -la dist/
-          echo "=== Contenido de dist/cv-digital/ ==="
-          ls -la dist/cv-digital/ || echo "No existe dist/cv-digital/"
-          echo "=== Contenido de dist/cv-digital/browser/ ==="
-          ls -la dist/cv-digital/browser/ || echo "No existe dist/cv-digital/browser/"
+          echo "=== buscando index.html ==="
+          find dist/ -name "index.html" -type f
 
-      # ✅ Copiar index.html como 404.html para SPA routing
+      # ✅ Copiar 404.html — ajustar ruta según lo que muestre el debug
       - name: 📄 Create 404.html
-        run: cp dist/cv-digital/browser/index.html dist/cv-digital/browser/404.html
+        run: |
+          INDEX_PATH=$(find dist/ -name "index.html" -type f | head -1)
+          DIST_DIR=$(dirname "$INDEX_PATH")
+          cp "$INDEX_PATH" "$DIST_DIR/404.html"
+          echo "Output directory: $DIST_DIR"
+          echo "DIST_DIR=$DIST_DIR" >> $GITHUB_ENV
 
-      # ✅ Configurar GitHub Pages
       - name: ⚙️ Setup Pages
         uses: actions/configure-pages@v5
 
-      # ✅ Subir artefacto — RUTA CORRECTA
+      # ✅ Subir artefacto — ruta dinámica
       - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/cv-digital/browser
+          path: ${{ env.DIST_DIR }}
 
   deploy:
     name: 🌐 Deploy

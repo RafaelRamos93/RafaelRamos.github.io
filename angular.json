@@ -59,7 +59,8 @@
                 "output": "/assets"
               }
             ],
-            "styles": ["src/styles.scss"]
+            "styles": ["src/styles.scss"],
+            "outputPath": "dist/cv-digital"
           },
           "configurations": {
             "production": {
