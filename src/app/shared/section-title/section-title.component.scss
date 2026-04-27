@@ -1,0 +1,36 @@
+.section-title {
+  margin-bottom: 3rem;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__number {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--accent-primary);
+    font-weight: 600;
+  }
+
+  &__text {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+
+  &__line {
+    flex-grow: 1;
+    height: 1px;
+    background: var(--border-primary);
+    max-width: 300px;
+  }
+
+  &__subtitle {
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    padding-left: 2.5rem;
+  }
+}

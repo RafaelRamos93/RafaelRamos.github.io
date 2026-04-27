@@ -1,0 +1,34 @@
+<div class="settings">
+
+  <!-- ─── Toggle de Tema ─── -->
+  <button
+    class="settings__btn"
+    (click)="toggleTheme()"
+    [attr.aria-label]="themeService.isDark() ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'"
+    [title]="themeService.isDark() ? 'Light mode' : 'Dark mode'"
+  >
+    <span class="settings__icon">
+      @if (themeService.isDark()) {
+        ☀️
+      } @else {
+        🌙
+      }
+    </span>
+  </button>
+
+  <!-- ─── Separador ─── -->
+  <span class="settings__divider"></span>
+
+  <!-- ─── Toggle de Idioma ─── -->
+  <button
+    class="settings__btn settings__btn--lang"
+    (click)="toggleLanguage()"
+    [attr.aria-label]="'Cambiar idioma'"
+    [title]="translateService.currentLang() === 'es' ? 'Switch to English' : 'Cambiar a Español'"
+  >
+    <span class="settings__lang-code">
+      {{ translateService.currentLang() === 'es' ? 'EN' : 'ES' }}
+    </span>
+  </button>
+
+</div>

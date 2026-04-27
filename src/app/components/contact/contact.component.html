@@ -1,0 +1,99 @@
+<section class="contact section" id="contact">
+  <div class="container">
+    <app-section-title
+      [number]="'contact.number' | translate"
+      [title]="'contact.title' | translate"
+      [subtitle]="'contact.subtitle' | translate"
+    />
+
+    <div class="contact__content" appScrollAnimation>
+      <!-- Info de contacto -->
+      <div class="contact__info">
+        <h3 class="contact__info-title">{{ 'contact.connect' | translate }}</h3>
+        <p class="contact__info-text">{{ 'contact.connect_text' | translate }}</p>
+
+        <div class="contact__items">
+          @for (item of contactItems; track item.label) {
+            <div class="contact__item">
+              <span class="contact__item-icon">{{ item.icon }}</span>
+              <div>
+                <span class="contact__item-label">{{ item.label }}</span>
+                @if (item.href) {
+                  <a [href]="item.href" target="_blank" rel="noopener noreferrer"
+                     class="contact__item-value">
+                    {{ item.value }}
+                  </a>
+                } @else {
+                  <span class="contact__item-value">{{ item.value }}</span>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <form class="contact__form" (ngSubmit)="onSubmit()">
+        <div class="contact__form-row">
+          <div class="contact__field">
+            <label for="name" class="contact__label">{{ 'contact.name' | translate }}</label>
+            <input
+              id="name"
+              type="text"
+              class="contact__input"
+              [placeholder]="'contact.name_placeholder' | translate"
+              [ngModel]="formData().name"
+              (ngModelChange)="formData.update(d => ({...d, name: $event}))"
+              name="name"
+              required
+            />
+          </div>
+          <div class="contact__field">
+            <label for="email" class="contact__label">{{ 'contact.email_label' | translate }}</label>
+            <input
+              id="email"
+              type="email"
+              class="contact__input"
+              [placeholder]="'contact.email_placeholder' | translate"
+              [ngModel]="formData().email"
+              (ngModelChange)="formData.update(d => ({...d, email: $event}))"
+              name="email"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="contact__field">
+          <label for="subject" class="contact__label">{{ 'contact.subject' | translate }}</label>
+          <input
+            id="subject"
+            type="text"
+            class="contact__input"
+            [placeholder]="'contact.subject_placeholder' | translate"
+            [ngModel]="formData().subject"
+            (ngModelChange)="formData.update(d => ({...d, subject: $event}))"
+            name="subject"
+          />
+        </div>
+
+        <div class="contact__field">
+          <label for="message" class="contact__label">{{ 'contect.message' | translate }}</label>
+          <textarea
+            id="message"
+            class="contact__textarea"
+            [placeholder]="'contact.message_placeholder' | translate"
+            rows="5"
+            [ngModel]="formData().message"
+            (ngModelChange)="formData.update(d => ({...d, message: $event}))"
+            name="message"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="contact__submit">
+         {{'contact.send' | translate}}
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

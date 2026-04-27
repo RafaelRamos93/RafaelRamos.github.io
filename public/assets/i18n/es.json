@@ -1,0 +1,86 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "experience": "Experiencia",
+    "education": "Educación",
+    "skills": "Tecnologías",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "download_cv": "CV ↓"
+  },
+  "hero": {
+    "greeting": "Hola, mi nombre es",
+    "contact_me": "Contáctame",
+    "download_cv": "📄 Descargar CV",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "number": "01.",
+    "title": "Sobre mí",
+    "subtitle": "Conóceme un poco más",
+    "years_exp": "Años de experiencia",
+    "projects_done": "Proyectos completados",
+    "technologies": "Tecnologías dominadas",
+    "certifications": "Certificaciones",
+    "location": "Ubicación",
+    "email": "Email",
+    "availability": "Disponibilidad",
+    "available": "Disponible",
+    "description_1": "Soy un desarrollador apasionado por la tecnología y la innovación. Me especializo en la creación de aplicaciones web modernas, escalables y con interfaces de usuario excepcionales.",
+    "description_2": "A lo largo de mi carrera, he trabajado en proyectos desafiantes que van desde plataformas de e-commerce hasta dashboards analíticos complejos, siempre buscando la excelencia en cada línea de código.",
+    "description_3": "Actualmente me enfoco en el ecosistema Angular, TypeScript y arquitecturas frontend modernas. Creo firmemente en el aprendizaje continuo y en compartir conocimiento con la comunidad."
+  },
+  "experience": {
+    "number": "02.",
+    "title": "Experiencia",
+    "subtitle": "Mi trayectoria profesional",
+    "current:": "Actual"
+  },
+  "education": {
+    "number": "03.",
+    "title": "Educación",
+    "subtitle": "Formación académica y certificaciones",
+    "academic": "Formación Académica",
+    "certs": "Certificaciones",
+    "view_credential": "Ver credencial ↗"
+  },
+  "skills": {
+    "number": "04.",
+    "title": "Tecnologías",
+    "subtitle": "Herramientas y tecnologías con las que trabajo",
+    "categories": "categorías",
+    "technologies": "tecnologías"
+  },
+  "projects": {
+    "number": "05.",
+    "title": "Proyectos",
+    "subtitle": "Lo que he construido",
+    "show_all": "Ver todos los proyectos",
+    "show_less": "Ver menos"
+  },
+  "contact": {
+    "number": "06.",
+    "title": "Contacto",
+    "subtitle": "¿Tienes un proyecto en mente? Hablemos",
+    "connect": "Conectemos",
+    "connect_text": "Estoy siempre abierto a nuevas oportunidades, colaboraciones y conversaciones interesantes. No dudes en contactarme.",
+    "phone": "Teléfono",
+    "location": "Ubicación",
+    "name": "Nombre",
+    "name_placeholder": "Tu nombre",
+    "email_label": "Email",
+    "email_placeholder": "tu@email.com",
+    "subject": "Asunto",
+    "subject_placeholder": "Asunto del mensaje",
+    "message": "Mensaje",
+    "message_placeholder": "Tu mensaje...",
+    "send": "Enviar mensaje →",
+    "view_profile": "Ver perfil"
+  },
+  "footer": {
+    "built_with": "Diseñado y construido con",
+    "using": "usando Angular v21",
+    "rights": "Todos los derechos reservados."
+  }
+}

@@ -1,0 +1,56 @@
+<section class="hero" id="hero">
+  <div class="hero__particles">
+    @for (i of particles; track i) {
+      <span class="hero__particle" [style.--delay]="i * 0.5 + 's'"></span>
+    }
+  </div>
+
+  <div class="hero__grid-overlay"></div>
+  <div class="hero__light-rays"></div>
+  <div class="hero_light-rays hero_light-rays--secondary"></div>
+  <div class="hero_energy-core"></div>
+
+  <div class="hero__container">
+    <div class="hero__photo-wrapper">
+      <div class="hero__photo-ring"></div>
+      <img
+        [src]="data().photo"
+        [alt]="'Foto de ' + data().fullName"
+        class="hero__photo"
+        loading="eager"
+      />
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__greeting">
+        <span class="hero__greeting-line"></span>
+        {{ 'hero.greeting' | translate}}
+      </p>
+      <h1 class="hero__name">{{ data().fullName }}</h1>
+      <h2 class="hero__title">{{ title }}</h2>
+      <p class="hero__summary">{{ summary }}</p>
+
+      <div class="hero__actions">
+        <a href="#contact" class="hero__btn hero__btn--primary">
+          {{ 'hero.contact_me' | translate }}
+        </a>
+        <a href="assets/files/cv.pdf" download class="hero__btn hero__btn--secondary">
+          {{ 'hero.download_cv' | translate }}
+        </a>
+      </div>
+
+      <div class="hero__social">
+        <a [href]="data().github" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span class="hero__social-divider">|</span>
+        <a [href]="data().linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <span class="hero__social-divider">|</span>
+        <a [href]="'mailto:' + data().email">Email</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__scroll-indicator">
+    <span class="hero__scroll-text"> {{ 'hero.scroll' | translate }} </span>
+    <span class="hero__scroll-line"></span>
+  </div>
+</section>

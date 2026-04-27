@@ -1,0 +1,268 @@
+.skills {
+  background: var(--bg-primary);
+
+  // ═══════════════════════════════════════════
+  //  TABS DE CATEGORÍAS
+  // ═══════════════════════════════════════════
+  &__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+  }
+
+  &__tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    letter-spacing: 0.02em;
+
+    &:hover {
+      border-color: var(--border-accent);
+      color: var(--text-primary);
+      background: var(--bg-card-hover);
+    }
+
+    &.active {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      background: rgba(var(--accent-primary-rgb), 0.08);
+      box-shadow: 0 0 15px rgba(var(--accent-primary-rgb), 0.1);
+    }
+
+    &-icon {
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    &-label {
+      white-space: nowrap;
+    }
+  }
+
+  // ═══════════════════════════════════════════
+  //  BARRA DE PROGRESO AUTO-ROTATE
+  // ═══════════════════════════════════════════
+  &__progress-track {
+    width: 100%;
+    height: 2px;
+    background: var(--border-primary);
+    border-radius: 1px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+
+  &__progress-bar {
+    height: 100%;
+    //width: 100%;
+    background: linear-gradient(
+      90deg,
+      var(--accent-primary),
+      var(--accent-tertiary)
+    );
+    border-radius: 1px;
+    //transform-origin: left;
+    //animation: progress-fill 5s linear infinite;
+    will-change: width;
+
+    &.paused {
+      animation-play-state: paused;
+    }
+  }
+
+  //@keyframes progress-fill {
+  //  from { transform: scaleX(0); }
+  //  to { transform: scaleX(1); }
+  // }
+
+  // ═══════════════════════════════════════════
+  //  CARRUSEL / GRID DE TECNOLOGÍAS
+  // ═══════════════════════════════════════════
+  &__carousel {
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    animation: fade-in-grid 0.4s ease;
+  }
+
+  @keyframes fade-in-grid {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // ═══════════════════════════════════════════
+  //  CARD DE TECNOLOGÍA
+  // ═══════════════════════════════════════════
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.5rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: 6px;
+    cursor: default;
+    transition: all var(--transition-normal);
+    opacity: 0;
+    animation: card-appear 0.4s ease forwards;
+    animation-delay: var(--delay, 0ms);
+
+    &:hover {
+      border-color: var(--accent-primary);
+      transform: translateY(-6px);
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(var(--accent-primary-rgb), 0.15);
+
+      .skills__card-icon img {
+        filter: drop-shadow(0 0 8px rgba(var(--accent-primary-rgb), 0.5));
+        transform: scale(1.15);
+      }
+
+      .skills__card-name {
+        color: var(--accent-primary);
+      }
+    }
+
+    &-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: all var(--transition-normal);
+        filter: grayscale(15%);
+      }
+    }
+
+    &-name {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-align: center;
+      line-height: 1.3;
+      transition: color var(--transition-fast);
+    }
+  }
+
+  @keyframes card-appear {
+    from {
+      opacity: 0;
+      transform: translateY(15px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  // ═══════════════════════════════════════════
+  //  TOTAL / FOOTER DE SECCIÓN
+  // ═══════════════════════════════════════════
+  &__total {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+
+    &-line {
+      height: 1px;
+      width: 60px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--border-primary),
+        transparent
+      );
+    }
+
+    &-text {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-tertiary);
+      letter-spacing: 0.05em;
+    }
+  }
+
+  // ═══════════════════════════════════════════
+  //  RESPONSIVE
+  // ═══════════════════════════════════════════
+  @media (max-width: 768px) {
+    &__tabs {
+      gap: 0.4rem;
+    }
+
+    &__tab {
+      padding: 0.5rem 0.8rem;
+      font-size: 0.75rem;
+
+      &-label {
+        display: none;
+      }
+
+      &-icon {
+        font-size: 1.2rem;
+      }
+
+      &.active .skills__tab-label {
+        display: inline;
+      }
+    }
+
+    &__grid {
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 0.8rem;
+    }
+
+    &__card {
+      padding: 1rem 0.6rem;
+
+      &-icon {
+        width: 36px;
+        height: 36px;
+      }
+
+      &-name {
+        font-size: 0.7rem;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

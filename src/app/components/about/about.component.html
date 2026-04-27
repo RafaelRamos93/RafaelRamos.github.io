@@ -1,0 +1,45 @@
+<section class="about section" id="about">
+  <div class="container">
+    <app-section-title
+      [number]="'about.number' | translate"
+      [title]="'about.title' | translate"
+      [subtitle]="'about.subtitle' | translate"
+    />
+
+    <div class="about__content" appScrollAnimation>
+      <div class="about__text">
+        <p>{{ 'about.description_1' | translate }}</p>
+        <p>{{ 'about.description_2' | translate }}</p>
+        <p>{{ 'about.description_3' | translate }}</p>
+
+        <div class="about__details">
+          <div class="about__detail">
+            <span class="about__detail-label">{{ 'about.location' | translate }}</span>
+            <span class="about__detail-value">{{ data().location }}</span>
+          </div>
+          <div class="about__detail">
+            <span class="about__detail-label">{{ 'about.email' | translate }}</span>
+            <a [href]="'mailto:' + data().email" class="about__detail-value">
+              {{ data().email }}
+            </a>
+          </div>
+          <div class="about__detail">
+            <span class="about__detail-label">{{ 'about.availability' | translate }}</span>
+            <span class="about__detail-value about__detail-value--available">
+              {{ 'about.available' | translate }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about__highlights">
+        @for (item of highlights; track item.label) {
+          <div class="about__highlight-card" appScrollAnimation [delay]="$index * 100 + 'ms'">
+            <span class="about__highlight-value">{{ item.value }}</span>
+            <span class="about__highlight-label">{{ item.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

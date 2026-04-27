@@ -1,0 +1,25 @@
+<section class="experience section" id="experience">
+  <div class="container">
+    <app-section-title
+      [number]="'experience.number' | translate"
+      [title]="'experience.title' | translate"
+      [subtitle]="'experience.subtitle' | translate"
+    />
+
+    <div class="experience__timeline">
+      @for (exp of experience(); track exp.id) {
+        <div appScrollAnimation [delay]="$index * 150 + 'ms'">
+          <app-timeline-item
+            [title]="cvData.b(exp.position)"
+            [subtitle]="exp.company"
+            [startDate]="exp.startDate"
+            [endDate]="exp.endDate === 'Actual' ? ('experience.current' | translate) : exp.endDate"
+            [description]="cvData.b(exp.description)"
+            [items]="exp.achievements | bilingualList"
+            [tags]="exp.technologies"
+          />
+        </div>
+      }
+    </div>
+  </div>
+</section>

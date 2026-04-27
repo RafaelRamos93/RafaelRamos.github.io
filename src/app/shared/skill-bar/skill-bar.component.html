@@ -1,0 +1,14 @@
+<div class="skill-bar">
+  <div class="skill-bar__header">
+    <span class="skill-bar__name">{{ name() }}</span>
+    <span class="skill-bar__percentage">{{ animatedLevel() }}%</span>
+  </div>
+  <div class="skill-bar__track">
+    <div
+      class="skill-bar__fill"
+      [style.width.%]="animatedLevel()"
+    >
+      <span class="skill-bar__glow"></span>
+    </div>
+  </div>
+</div>

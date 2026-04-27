@@ -1,0 +1,70 @@
+<section class="skills section" id="skills">
+  <div class="container">
+    <app-section-title
+      [number]="'skills.number' | translate"
+      [title]="'skills.title' | translate"
+      [subtitle]="'skills.subtitle' | translate"
+    />
+
+    <!-- ─── Tabs de Categorías ─── -->
+    <div class="skills__tabs" appScrollAnimation>
+      @for (cat of categories; track cat.key) {
+        <button
+          class="skills__tab"
+          [class.active]="activeCategory() === cat.key"
+          (click)="selectCategory(cat.key)"
+        >
+          <span class="skills__tab-icon">{{ cat.icon }}</span>
+          <span class="skills__tab-label">{{ getCategoryLabel(cat) }}</span>
+        </button>
+      }
+    </div>
+
+    <!-- ─── Indicador de progreso del auto-rotate ─── -->
+    <div class="skills__progress-track">
+      <div
+        class="skills__progress-bar"
+        [style.width.%]="progress()"
+      ></div>
+    </div>
+
+    <!-- ─── Grid / Carrusel de Tecnologías ─── -->
+    <div
+      class="skills__carousel"
+      (mouseenter)="pauseCarousel()"
+      (mouseleave)="resumeCarousel()"
+    >
+      <div class="skills__grid">
+        @for (tech of visibleTech; track tech.name; let i = $index) {
+          <div
+            class="skills__card"
+            [style.--delay]="i * 60 + 'ms'"
+          >
+            <div class="skills__card-icon">
+              <img
+                [src]="iconResolver.resolveIcon(tech.iconKey)"
+                [alt]="tech.name + ' icon'"
+                (error)="onIconError($event)"
+                loading="lazy"
+                width="48"
+                height="48"
+              />
+            </div>
+            <span class="skills__card-name">{{ tech.name }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- ─── Indicador: todas las tecnologías ─── -->
+    <div class="skills__total" appScrollAnimation>
+      <span class="skills__total-line"></span>
+      <span class="skills__total-text">
+        +{{ techByCategory().size }} {{ 'skills.categories' | translate }}
+        ·
+        {{ allTechCount }} {{ 'skills.technologies' | translate }}
+      </span>
+      <span class="skills__total-line"></span>
+    </div>
+  </div>
+</section>

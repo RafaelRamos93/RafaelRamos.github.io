@@ -1,0 +1,25 @@
+<section class="projects section section--alt" id="projects">
+  <div class="container">
+    <app-section-title
+      [number]="'projects.number' | translate"
+      [title]="'projects.title' | translate"
+      [subtitle]="'projects.subtitle' | translate"
+    />
+
+    <div class="projects__grid">
+      @for (project of visibleProjects(); track project.id) {
+        <div appScrollAnimation [delay]="$index * 150 + 'ms'">
+          <app-project-card [project]="project" />
+        </div>
+      }
+    </div>
+
+    @if (allProjects().length > 3) {
+      <div class="projects__toggle">
+        <button class="projects__toggle-btn" (click)="toggleProjects()">
+          {{ showAll() ? ('projects.show_less' | translate) : ('projects.show_all' | translate) }}
+        </button>
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,52 @@
+<nav class="navbar" [class.scrolled]="isScrolled()">
+  <div class="navbar__container">
+    <a class="navbar__logo" (click)="scrollTo('hero')">
+      <span class="navbar__logo-bracket">&lt;</span>
+      <span class="navbar__logo-name"> {{ data().shortName }}</span>
+      <span class="navbar__logo-bracket">/&gt;</span>
+    </a>
+
+    <!-- Controles de tema e idioma -->
+    <div class="navbar__right">
+      <ul class="navbar__menu" [class.open]="isMenuOpen()">
+        @for (item of navItems; track item.target) {
+          <li class="navbar__item">
+            <a class="navbar__link" (click)="scrollTo(item.target)">
+              {{ item.label }}
+            </a>
+          </li>
+        }
+        <!----
+        <li class="navbar__item navbar__item--mobile-only">
+          <a class="navbar__cta" href="assets/files/cv.pdf" download>
+            {{ 'nav.download_cv' | translate}}
+          </a>
+        </li>
+      -->
+      </ul>
+
+      <a class="navbar__cta navbar__cta--desktop" href="assets/files/cv.pdf" download>
+        {{ 'nav.download_cv' | translate }}
+      </a>
+
+      <!-- Toggle de settings (siempre visible) -->
+      <app-settings-toggle />
+      
+      <button
+        class="navbar__toggle"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="isMenuOpen()"
+        aria-label="Menú de navegación"
+      >
+        <span class="navbar__toggle-line" [class.active]="isMenuOpen()"></span>
+        <span class="navbar__toggle-line" [class.active]="isMenuOpen()"></span>
+        <span class="navbar__toggle-line" [class.active]="isMenuOpen()"></span>
+      </button>
+    </div>
+  </div>  
+</nav>
+
+<!-- Overlay para cerrar menú móvil -->
+@if (isMenuOpen()) {
+  <div class="navbar__overlay" (click)="toggleMenu()"></div>
+}

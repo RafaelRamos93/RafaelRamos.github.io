@@ -1,0 +1,86 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Technologies",
+    "projects": "Projects",
+    "contact": "Contact",
+    "download_cv": "CV ↓"
+  },
+  "hero": {
+    "greeting": "Hi, my name is",
+    "contact_me": "Contact me",
+    "download_cv": "📄 Download CV",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "number": "01.",
+    "title": "About me",
+    "subtitle": "Get to know me",
+    "years_exp": "Years of experience",
+    "projects_done": "Projects completed",
+    "technologies": "Technologies mastered",
+    "certifications": "Certifications",
+    "location": "Location",
+    "email": "Email",
+    "availability": "Availability",
+    "available": "Available",
+    "description_1": "I'm a developer passionate about technology and innovation. I specialize in creating modern, scalable web applications with exceptional user interfaces.",
+    "description_2": "Throughout my career, I have worked on challenging projects ranging from e-commerce platforms to complex analytics dashboards, always striving for excellence in every line of code.",
+    "description_3": "I currently focus on the Angular ecosystem, TypeScript and modern frontend architectures. I firmly believe in continuous learning and sharing knowledge with the community."
+  },
+  "experience": {
+    "number": "02.",
+    "title": "Experience",
+    "subtitle": "My professional career",
+    "current": "Present"
+  },
+  "education": {
+    "number": "03.",
+    "title": "Education",
+    "subtitle": "Academic background and certifications",
+    "academic": "Academic Background",
+    "certs": "Certifications",
+    "view_credential": "View credential ↗"
+  },
+  "skills": {
+    "number": "04.",
+    "title": "Technologies",
+    "subtitle": "Tools and technologies I work with",
+    "categories": "categories",
+    "technologies": "technologies"
+  },
+  "projects": {
+    "number": "05.",
+    "title": "Projects",
+    "subtitle": "What I've built",
+    "show_all": "View all projects",
+    "show_less": "Show less"
+  },
+  "contact": {
+    "number": "06.",
+    "title": "Contact",
+    "subtitle": "Have a project in mind? Let's talk",
+    "connect": "Let's connect",
+    "connect_text": "I'm always open to new opportunities, collaborations and interesting conversations. Don't hesitate to reach out.",
+    "phone": "Phone",
+    "location": "Location",
+    "name": "Name",
+    "name_placeholder": "Your name",
+    "email_label": "Email",
+    "email_placeholder": "you@email.com",
+    "subject": "Subject",
+    "subject_placeholder": "Message subject",
+    "message": "Message",
+    "message_placeholder": "Your message...",
+    "send": "Send message →",
+    "view_profile": "View profile"
+  },
+  "footer": {
+    "built_with": "Designed and built with",
+    "using": "using Angular v21",
+    "rights": "All rights reserved."
+  }
+}

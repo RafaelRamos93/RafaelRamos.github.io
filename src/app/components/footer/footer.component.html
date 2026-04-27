@@ -1,0 +1,35 @@
+<footer class="footer">
+  <div class="footer__container">
+    <div class="footer__top">
+      <button class="footer__back-to-top" (click)="scrollToTop()">
+        ↑
+      </button>
+    </div>
+
+    <div class="footer__content">
+      <div class="footer__brand">
+        <span class="footer__logo">
+          <span class="footer__bracket">&lt;</span>
+          {{ data().fullName }}
+          <span class="footer__bracket">/&gt;</span>
+        </span>
+        <p class="footer__tagline">
+          {{ 'footer.built_with' | translate}} <span class="footer__heart">♥</span>
+          {{ 'footer.using' | translate }}
+        </p>
+      </div>
+
+      <div class="footer__links">
+        <a [href]="data().github" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a [href]="data().linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a [href]="'mailto:' + data().email">Email</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copyright">
+        © {{ currentYear }} {{ data().fullName }}. {{ 'footer.rights' | translate }}
+      </p>
+    </div>
+  </div>
+</footer>

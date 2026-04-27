@@ -1,0 +1,76 @@
+.education {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  &__academic {
+    max-width: 800px;
+  }
+
+  &__subtitle {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    &-icon {
+      font-size: 1.3rem;
+    }
+  }
+
+  &__cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  &__cert-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    padding: 1.5rem;
+    transition: all var(--transition-normal);
+
+    &:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &__cert-date {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent-primary);
+    background: rgba(var(--accent-primary-rgb), 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+  }
+
+  &__cert-name {
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin: 0.8rem 0 0.3rem;
+    font-weight: 600;
+  }
+
+  &__cert-issuer {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+  }
+
+  &__cert-link {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-primary);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

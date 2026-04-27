@@ -1,0 +1,41 @@
+<div class="timeline-item">
+  <div class="timeline-item__marker">
+    <span class="timeline-item__dot"></span>
+    <span class="timeline-item__line"></span>
+  </div>
+
+  <div class="timeline-item__content">
+    <div class="timeline-item__header">
+      <div>
+        <h3 class="timeline-item__title">{{ title() }}</h3>
+        <p class="timeline-item__subtitle">{{ subtitle() }}</p>
+      </div>
+      <span class="timeline-item__date">
+        {{ startDate() | dateRange: endDate() }}
+      </span>
+    </div>
+
+    @if (description()) {
+      <p class="timeline-item__description">{{ description() }}</p>
+    }
+
+    @if (items().length > 0) {
+      <ul class="timeline-item__list">
+        @for (item of items(); track $index) {
+          <li class="timeline-item__list-item">
+            <span class="timeline-item__list-marker">▹</span>
+            {{ item }}
+          </li>
+        }
+      </ul>
+    }
+
+    @if (tags().length > 0) {
+      <div class="timeline-item__tags">
+        @for (tag of tags(); track tag) {
+          <span class="timeline-item__tag">{{ tag }}</span>
+        }
+      </div>
+    }
+  </div>
+</div>

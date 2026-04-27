@@ -1,0 +1,48 @@
+.settings {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+
+  &__btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    color: var(--text-secondary);
+
+    &:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      background: rgba(var(--accent-primary-rgb), 0.08);
+    }
+
+    &--lang {
+      width: auto;
+      padding: 0 0.6rem;
+    }
+  }
+
+  &__icon {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  &__lang-code {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  &__divider {
+    width: 1px;
+    height: 20px;
+    background: var(--border-primary);
+  }
+}

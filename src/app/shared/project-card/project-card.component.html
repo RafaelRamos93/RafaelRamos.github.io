@@ -1,0 +1,28 @@
+<article class="project-card">
+  <div class="project-card__header">
+    <span class="project-card__icon">📁</span>
+    <div class="project-card__links">
+      @if (project().repoUrl) {
+        <a [href]="project().repoUrl" target="_blank" rel="noopener noreferrer"
+           class="project-card__link" aria-label="Repositorio">
+          &#60;/&#62;
+        </a>
+      }
+      @if (project().liveUrl) {
+        <a [href]="project().liveUrl" target="_blank" rel="noopener noreferrer"
+           class="project-card__link" aria-label="Demo en vivo">
+          ↗
+        </a>
+      }
+    </div>
+  </div>
+
+  <h3 class="project-card__title">{{ project().title }}</h3>
+  <p class="project-card__description">{{ description }}</p>
+
+  <div class="project-card__technologies">
+    @for (tech of project().technologies; track tech) {
+      <span class="project-card__tech">{{ tech }}</span>
+    }
+  </div>
+</article>

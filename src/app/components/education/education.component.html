@@ -1,0 +1,65 @@
+<section class="education section section--alt" id="education">
+  <div class="container">
+    <app-section-title
+      [number]="'education.number' | translate"
+      [title]="'education.title' | translate"
+      [subtitle]="'education.subtitle' | translate"
+    />
+
+    <div class="education__content">
+      <!-- Formación Académica -->
+      <div class="education__academic">
+        <h3 class="education__subtitle">
+          <span class="education__subtitle-icon">🎓</span>
+          {{ 'education.academic' | translate }}
+        </h3>
+        @for (edu of education(); track edu.id) {
+          <div appScrollAnimation [delay]="$index * 150 + 'ms'">
+            <app-timeline-item
+              [title]="cvData.b(edu.degree) + ' en ' + cvData.b(edu.field)"
+              [subtitle]="edu.institution"
+              [startDate]="edu.startDate"
+              [endDate]="edu.endDate"
+              [description]="edu.description ? cvData.b(edu.description) : ''"
+              [items]="[]"
+              [tags]="[]"
+            />
+          </div>
+        }
+      </div>
+
+      <!-- Certificaciones -->
+      @if (certifications().length > 0) {
+        <div class="education__certifications">
+          <h3 class="education__subtitle">
+            <span class="education__subtitle-icon">📜</span>
+            {{ 'education.certs' | translate }}
+          </h3>
+          <div class="education__cert-grid">
+            @for (cert of certifications(); track cert.name) {
+              <div
+                class="education__cert-card"
+                appScrollAnimation
+                [delay]="$index * 100 + 'ms'"
+              >
+                <span class="education__cert-date">{{ cert.date }}</span>
+                <h4 class="education__cert-name">{{ cert.name }}</h4>
+                <p class="education__cert-issuer">{{ cert.issuer }}</p>
+                @if (cert.url) {
+                  <a
+                    [href]="cert.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="education__cert-link"
+                  >
+                    {{ 'education.view_credential' | translate }}
+                  </a>
+                }
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+<div class="section-title">
+  <div class="section-title__header">
+    <span class="section-title__number">{{ number() }}</span>
+    <h2 class="section-title__text">{{ title() }}</h2>
+    <span class="section-title__line"></span>
+  </div>
+  @if (subtitle()) {
+    <p class="section-title__subtitle">{{ subtitle() }}</p>
+  }
+</div>
