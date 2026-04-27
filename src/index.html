@@ -2,8 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>CvDigital</title>
+  <title>Rafael Ramos</title>
   <base href="/">
+  <!-- ✅ Script para SPA redirect en GitHub Pages -->
+  <script>
+    (function(){
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect !== location.href) {
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
