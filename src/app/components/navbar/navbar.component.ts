@@ -2,12 +2,12 @@ import { Component, HostListener, inject, signal } from '@angular/core';
 import { Scroll } from '../../services/scroll.service';
 import { CvData } from '../../services/cv-data.service';
 import { Translate } from '../../services/translate.service';
-import { SettingsToggle } from '../../shared/settings-toggle/settings-toggle.component';
 import { TranslatePipe } from '../../pipes/translate.pipe';
+import { SettingsToggle } from '../../shared/settings-toggle/settings-toggle.component';
 
 @Component({
   selector: 'app-navbar',
-  imports: [SettingsToggle, TranslatePipe],
+  imports: [TranslatePipe, SettingsToggle],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })

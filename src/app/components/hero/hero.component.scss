@@ -219,3 +219,51 @@
     &__greeting { justify-content: center; }
   }
 }
+// En hero.component.scss, agrega al final:
+:host-context([data-theme='light']) .hero {
+  background: linear-gradient(160deg, #f0f0f0 0%, #e2e2e8 50%, #f5f5f5 100%);
+}
+
+// Al final de hero.component.scss
+
+:host-context([data-theme='light']) {
+  .hero {
+    // ─── Rejilla más sutil ───
+    &__grid-overlay {
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    }
+
+    // ─── Rayos de luz más suaves ───
+    .hero__light-rays {
+      opacity: 0.04;
+    }
+
+    // ─── Partículas visibles sobre fondo claro ───
+    .hero__particle {
+      background: var(--accent-primary);
+      opacity: 0.3;
+    }
+
+    // ─── Pulso central adaptado ───
+    .hero__energy-core {
+      background: radial-gradient(
+        circle at center,
+        rgba(var(--accent-primary-rgb), 0.08) 0%,
+        rgba(var(--accent-primary-rgb), 0.03) 30%,
+        transparent 60%
+      );
+    }
+
+    // ─── Foto sin filtro gris ───
+    .hero__photo {
+      filter: none;
+    }
+
+    // ─── Scroll indicator ───
+    .hero__scroll-line {
+      background: linear-gradient(to bottom, var(--accent-primary), transparent);
+    }
+  }
+}

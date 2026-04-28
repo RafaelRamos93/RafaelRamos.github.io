@@ -7,6 +7,7 @@
   padding: 1rem 0;
   transition: all var(--transition-normal);
   background: transparent;
+  overflow: visible;
 
   &.scrolled {
     background: var(--bg-secondary);
@@ -23,6 +24,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: visible;
   }
 
   // ─── Logo ───
@@ -50,6 +52,8 @@
     display: flex;
     align-items: center;
     gap: 1.2rem;
+    flex-shrink: 0;
+    overflow: visible;
   }
 
   // ─── Menú ───
@@ -89,6 +93,14 @@
         width: 100%;
       }
     }
+  }
+
+  // ✅ Separador vertical entre CTA y toggles
+  &__separator {
+    width: 1px;
+    height: 24px;
+    background: var(--border-primary);
+    opacity: 0.5;
   }
 
   // ─── CTA (Botón CV) ───
